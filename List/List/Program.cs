@@ -8,37 +8,35 @@ namespace List
     {
         static void Main(string[] args)
         {
-            List<User> myInsta = new List<User>();
+            User myUser = new User();
 
-            
-            User UserName = new User();
+            myUser.UserName = "Antonio";
+            myUser.TotalViews = 2;
+            myUser.Likes = 3;
 
-            User TotalViews = new User();
-            User Likes = new User();
-            User Comments = new User();
+            myUser.Comments = new List<string>();
+            myUser.Comments.Add("This is the first comment.");
+            myUser.Comments.Add("A great comment.");
+            myUser.Comments.Add("The last comment.");
 
-            myInsta.Add(UserName);
-            myInsta.Add(TotalViews);
-            myInsta.Add(Likes);
-            myInsta.Add(Comments);
+            Console.WriteLine("The User " + myUser.UserName +
+                " has Total Views of: " + myUser.TotalViews +
+                " , With these many likes: " + myUser.Likes);
 
 
-
-            List<User> newList = myInsta.Where(User => User.Comments == "List of Comments").ToList();
-
-            foreach (var item in newList)
+            Console.WriteLine("It has the following comments:");
+            foreach(var item in myUser.Comments)
             {
-                Console.WriteLine("My User Name: " + "Total Views: " + "Likes: ");
+                Console.WriteLine(item);
             }
-
 
         }
     }
 }
 public class User
 {
-    public string UserName { get; set; } = string.Empty;
-    public string TotalViews { get; set; }
-    public string Likes { get; set; }
-    public string Comments { get; set; } = string.Empty;
+    public string UserName { get; set; }
+    public int TotalViews { get; set; }
+    public int Likes { get; set; }
+    public List<string> Comments { get; set; } 
 }
